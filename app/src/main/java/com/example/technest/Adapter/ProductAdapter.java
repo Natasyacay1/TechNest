@@ -7,24 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
-import com.example.technest.Model.Product;
 import com.example.technest.R;
 import java.util.List;
 
+// Sesuaikan 'Product' dengan nama model class data produk milikmu
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    private final List<Product> productList;
-    private OnItemClickListener listener;
-
-    // Interface untuk mendeteksi klik pada produk (buat buka halaman detail nanti)
-    public interface OnItemClickListener {
-        void onItemClick(Product product);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
+    private List<Product> productList; // Ganti 'Product' sesuai nama kelas modelmu jika berbeda
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
@@ -40,37 +29,39 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
-        holder.tvTitle.setText(product.getTitle());
-        holder.tvPrice.setText("$" + product.getPrice());
 
-        // Menggunakan Glide untuk download gambar secara otomatis & pasang ke ImageView
-        Glide.with(holder.itemView.getContext())
-                .load(product.getThumbnail())
-                .placeholder(android.R.color.darker_gray) // Gambar sementara pas loading
-                .into(holder.imgProduct);
+        // Bind data nama produk
+        holder.tvProductName.setText(product.getTitle()); // atau product.getName() sesuai modelmu
 
-        // Logika ketika kotak produk diklik
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(product);
-            }
-        });
+        // Bind data harga produk
+        holder.tvProductPrice.setText("$" + product.getPrice());
+
+        // Bind data rating jika ada
+        holder.tvProductRating.setText(String.valueOf(product.getRating()));
+
+        // Untuk gambar, jika kamu menggunakan library Glide, kodenya seperti ini:
+        // Glide.with(holder.itemView.getContext()).load(product.getThumbnail()).into(holder.imgProduct);
+        // Kalau pakai Picasso:
+        // Picasso.get().load(product.getThumbnail()).into(holder.imgProduct);
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return productList != null ? productList.size() : 0;
     }
 
+    // KUNCI UTAMA NYA ADA DI SINI (Menyesuaikan dengan ID Baru di item_product.xml)
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProduct;
-        TextView tvTitle, tvPrice;
+        TextView tvProductName, tvProductPrice, tvProductRating, btnAddToCart;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             imgProduct = itemView.findViewById(R.id.img_product);
-            tvTitle = itemView.findViewById(R.id.tv_title);
-            tvPrice = itemView.findViewById(R.id.tv_price);
+            tvProductName = itemView.findViewById(R.id.tv_product_name);
+            tvProductPrice = itemView.findViewById(R.id.tv_product_price);
+            tvProductRating = itemView.findViewById(R.id.tv_product_rating);
+            btnAddToCart = itemView.findViewById(R.id.btn_add_to_cart);
         }
     }
 }
