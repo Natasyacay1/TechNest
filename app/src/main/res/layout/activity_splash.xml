@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F1113">
+
+    <!-- Bagian Logo dan Nama Aplikasi di Tengah Layar -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Langsung panggil logo utuh hasil download Figma dari drawable -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:letterSpacing="0.25"
+            android:text="TECHNEST"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="0.3"
+            android:text="INOVASI TERKALIBRASI"
+            android:textColor="#BBBBBB"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <!-- Bagian Loading Indicator dan Status di Bawah Layar -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp">
+
+        <ProgressBar
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminateTint="#00E5FF"
+            style="?android:attr/progressBarStyleSmall"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SYSTEM_INITIALIZING..."
+            android:textColor="#666666"
+            android:textSize="10sp"
+            android:letterSpacing="0.1"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo_app"
+        android:layout_width="wrap_content"
+        android:layout_height="154dp"
+        android:src="@drawable/ic_technest_logo" />
+
+</RelativeLayout>
