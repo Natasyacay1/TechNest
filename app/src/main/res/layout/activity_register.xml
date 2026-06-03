@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0F1113"
+    android:padding="24dp"
+    tools:context=".RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Tombol Kembali -->
+            <ImageButton
+                android:id="@+id/btnKembali"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#1A1D21"
+                android:src="@drawable/ic_back"
+                android:padding="8dp"
+                android:tint="#00BCD4"/>
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_technest_logo"
+                android:scaleType="fitCenter"/>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:text="Buat Akun"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <!-- Subtitle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:text="Daftar untuk mulai belanja di TechNest"
+                android:textColor="#666666"
+                android:textSize="13sp"/>
+
+            <!-- Input Nama -->
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Nama Lengkap"
+                android:textColorHint="#555555"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:inputType="textPersonName"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Input Email -->
+            <EditText
+                android:id="@+id/etEmailDaftar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Alamat Email"
+                android:textColorHint="#555555"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Input Password -->
+            <EditText
+                android:id="@+id/etPasswordDaftar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Kata Sandi (min. 6 karakter)"
+                android:textColorHint="#555555"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Input Konfirmasi Password -->
+            <EditText
+                android:id="@+id/etKonfirmasiPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Ulangi Kata Sandi"
+                android:textColorHint="#555555"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Tombol Daftar -->
+            <Button
+                android:id="@+id/btnDaftar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="DAFTAR SEKARANG"
+                android:textColor="#0F1113"
+                android:textStyle="bold"
+                android:backgroundTint="#00BCD4"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Sudah punya akun -->
+            <TextView
+                android:id="@+id/tvGoToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sudah punya akun? Masuk"
+                android:textColor="#00BCD4"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
