@@ -6,7 +6,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ApiService {
-    // Menangkap kategori gadget secara dinamis
-    @GET("products/category/{category_name}")
-    Call<ProductResponse> getGadgetsByCategory(@Path("category_name") String categoryName);
+
+    @GET("products/category/smartphones?limit=20")
+    Call<ProductResponse> getAllProducts();
+
+    // Dibuat satu parameter saja agar pas dengan baris ProductRepository kamu
+    @GET("products/category/{category}?limit=20")
+    Call<ProductResponse> getProductsByCategory(@Path("category") String category);
 }
