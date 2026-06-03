@@ -3,17 +3,12 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@android:drawable/ic_menu_home" />
+        android:title="Beranda"
+        android:icon="@android:drawable/ic_menu_compass"/>
 
     <item
         android:id="@+id/cartFragment"
-        android:title="Cart"
-        android:icon="@android:drawable/ic_menu_add" />
-
-    <item
-        android:id="@+id/profileFragment"
-        android:title="Profile"
-        android:icon="@android:drawable/ic_menu_myplaces" />
+        android:title="Keranjang"
+        android:icon="@android:drawable/ic_menu_agenda"/>
 
 </menu>
