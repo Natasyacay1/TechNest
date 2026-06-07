@@ -5,22 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B0D0F">
+    android:background="?android:attr/windowBackground"> <View
+    android:id="@+id/bgGlow"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:background="@android:drawable/screen_background_dark_transparent"
+    android:backgroundTint="#00E5FF"
+    android:alpha="0.02"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_marginTop="-50dp"
+    android:layout_marginStart="-50dp"/>
 
-    <!-- Ornamen Glow di Latar Belakang atas (Sudah diberi Constraint Khusus) -->
-    <View
-        android:id="@+id/bgGlow"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:background="@android:drawable/screen_background_dark_transparent"
-        android:backgroundTint="#00E5FF"
-        android:alpha="0.02"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="-50dp"
-        android:layout_marginStart="-50dp" />
-
-    <!-- Header Bar (Brand Name & Icon Search) -->
     <RelativeLayout
         android:id="@+id/headerBar"
         android:layout_width="match_parent"
@@ -35,14 +31,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="TECHNEST"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textColor="?android:attr/textColorPrimary" android:textSize="18sp"
             android:fontFamily="sans-serif-black"
             android:textStyle="bold"
             android:letterSpacing="0.1"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"/>
 
-        <!-- Tombol Refresh (Disamakan dengan Java agar tidak error) -->
         <ImageButton
             android:id="@+id/btn_refresh"
             android:layout_width="32dp"
@@ -51,12 +45,10 @@
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:src="@android:drawable/stat_notify_sync"
-            app:tint="#FFFFFF"
-            tools:ignore="ContentDescription,TouchTargetSizeCheck" />
+            app:tint="?android:attr/textColorPrimary" tools:ignore="ContentDescription,TouchTargetSizeCheck"/>
     </RelativeLayout>
 
-    <!-- Scroll Utama untuk Konten (Memperbaiki error 'parent' di baris bawah) -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
@@ -70,17 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="24dp">
+            android:paddingBottom="80dp">
 
-            <!-- 1. Search Bar Minimalis -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@android:drawable/screen_background_dark_transparent"
-                android:backgroundTint="#12161A"
-                android:gravity="center_vertical"
+                android:backgroundTint="?android:attr/colorBackground" android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp">
 
@@ -88,23 +78,20 @@
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@android:drawable/ic_menu_search"
-                    app:tint="#3A4550"
-                    tools:ignore="ContentDescription" />
+                    app:tint="?android:attr/textColorSecondary" tools:ignore="ContentDescription"/>
 
                 <EditText
+                    android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"
                     android:background="@android:color/transparent"
                     android:hint="Search elite hardware..."
-                    android:textColorHint="#3A4550"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
+                    android:textColorHint="?android:attr/textColorSecondary" android:textColor="?android:attr/textColorPrimary" android:textSize="14sp"
                     android:inputType="text"
-                    tools:ignore="Autofill,TouchTargetSizeCheck,HardcodedText" />
+                    tools:ignore="Autofill,TouchTargetSizeCheck,HardcodedText"/>
             </LinearLayout>
 
-            <!-- 2. Kategori Horizontal Tab -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +106,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Tab Semua -->
                     <TextView
                         android:id="@+id/btnSemuaProduk"
                         android:layout_width="wrap_content"
@@ -133,48 +119,53 @@
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="8dp"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
 
-                    <!-- Tab Smartphone -->
                     <TextView
                         android:id="@+id/btnSmartphone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:drawable/screen_background_dark_transparent"
-                        android:backgroundTint="#12161A"
-                        android:paddingHorizontal="16dp"
+                        android:backgroundTint="?android:attr/colorBackground" android:paddingHorizontal="16dp"
                         android:paddingVertical="8dp"
                         android:text="Smartphone"
-                        android:textColor="#626D77"
-                        android:textSize="12sp"
+                        android:textColor="?android:attr/textColorSecondary" android:textSize="12sp"
                         android:layout_marginEnd="8dp"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
 
-                    <!-- Tab Laptop -->
                     <TextView
                         android:id="@+id/btnLaptop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:drawable/screen_background_dark_transparent"
-                        android:backgroundTint="#12161A"
-                        android:paddingHorizontal="16dp"
+                        android:backgroundTint="?android:attr/colorBackground" android:paddingHorizontal="16dp"
                         android:paddingVertical="8dp"
                         android:text="Laptop"
-                        android:textColor="#626D77"
-                        android:textSize="12sp"
+                        android:textColor="?android:attr/textColorSecondary" android:textSize="12sp"
+                        android:layout_marginEnd="8dp"
+                        tools:ignore="HardcodedText"/>
+
+                    <TextView
+                        android:id="@+id/btnTablet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/screen_background_dark_transparent"
+                        android:backgroundTint="?android:attr/colorBackground" android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:text="Tablet"
+                        android:textColor="?android:attr/textColorSecondary" android:textSize="12sp"
                         android:layout_marginEnd="24dp"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
+
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- 3. Hero Promo Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="24dp"
-                app:cardBackgroundColor="#12161A"
-                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="?android:attr/colorBackground" app:cardCornerRadius="16dp"
                 app:cardElevation="0dp">
 
                 <RelativeLayout
@@ -191,7 +182,7 @@
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.1"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
 
                     <TextView
                         android:id="@+id/promoTitle"
@@ -200,11 +191,10 @@
                         android:layout_below="@id/promoLabel"
                         android:layout_marginTop="4dp"
                         android:text="NEXUS PRIME X1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="22sp"
+                        android:textColor="?android:attr/textColorPrimary" android:textSize="22sp"
                         android:fontFamily="sans-serif-black"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
 
                     <TextView
                         android:layout_width="160dp"
@@ -212,9 +202,8 @@
                         android:layout_below="@id/promoTitle"
                         android:layout_marginTop="6dp"
                         android:text="Experience the future of mobile intelligence."
-                        android:textColor="#626D77"
-                        android:textSize="11sp"
-                        tools:ignore="HardcodedText" />
+                        android:textColor="?android:attr/textColorSecondary" android:textSize="11sp"
+                        tools:ignore="HardcodedText"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -228,7 +217,7 @@
                         android:textColor="#0B0D0F"
                         android:textSize="11sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"/>
 
                     <ImageView
                         android:layout_width="120dp"
@@ -238,11 +227,10 @@
                         android:src="@android:drawable/stat_sys_phone_call"
                         android:alpha="0.15"
                         app:tint="#00E5FF"
-                        tools:ignore="ContentDescription" />
+                        tools:ignore="ContentDescription"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 4. Label Section List -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -253,13 +241,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Curated Essentials"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
+                    android:textColor="?android:attr/textColorPrimary" android:textSize="16sp"
                     android:fontFamily="sans-serif-medium"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"/>
 
                 <TextView
+                    android:id="@+id/tv_view_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -268,10 +256,9 @@
                     android:textColor="#00E5FF"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"/>
             </RelativeLayout>
 
-            <!-- Loading Indicator -->
             <ProgressBar
                 android:id="@+id/progress_bar"
                 android:layout_width="36dp"
@@ -281,7 +268,6 @@
                 android:indeterminateTint="#00E5FF"
                 android:visibility="gone"/>
 
-            <!-- 5. RECYCLERVIEW -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_products"
                 android:layout_width="match_parent"
@@ -292,5 +278,6 @@
                 tools:listitem="@layout/item_product"/>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
