@@ -17,4 +17,10 @@
         android:label="Keranjang"
         tools:layout="@layout/fragment_cart"/>
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.technest.Fragment.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>
