@@ -40,19 +40,41 @@ Aplikasi ini diimplementasikan dengan memenuhi seluruh spesifikasi teknis yang d
 
 ---
 
-## 📂 Struktur Project
+## 📂 Struktur Project (Android View)
 
 ```text
-com.example.technest/
+app/
+├── manifests/
+│   └── AndroidManifest.xml      # Konfigurasi aplikasi, izin internet, & launcher Activity
 │
-├── API/             # Logika Networking & Config Retrofit (ApiService, ProductRepository)
-├── Adapter/         # Pengelola RecyclerView (ProductAdapter, CartAdapter)
-├── Database/        # Manajemen SQLite lokal (CartDatabaseHelper)
-├── Fragment/        # Halaman Tab Aplikasi (HomeFragment, CartFragment, ProfileFragment)
-└── Model/           # POJO / Data Class (Product, ProductResponse)
+├── java + kotlin/
+│   └── com.example.technest/
+│       ├── API/                 # Manajemen Retrofit & endpoint API (ApiService, ProductRepository)
+│       ├── Adapter/             # Pengelola RecyclerView (ProductAdapter, CartAdapter)
+│       ├── Database/            # Pengelola SQLite lokal (CartDatabaseHelper)
+│       ├── Fragment/            # Halaman interface tab (HomeFragment, CartFragment, ProfileFragment)
+│       ├── Model/               # POJO / Data Class untuk parsing JSON (Product, ProductResponse)
+│       ├── CheckoutActivity     # Halaman proses checkout produk
+│       ├── DetailActivity       # Halaman detail informasi produk mendalam
+│       ├── LoginActivity        # Halaman autentikasi masuk user
+│       ├── MainActivity         # Halaman utama penampung fragment navigasi
+│       ├── RegisterActivity     # Halaman pendaftaran akun baru
+│       └── SplashActivity       # Halaman pembuka (Splash Screen) awal aplikasi
+│
+├── res/ (Resources)
+│   ├── drawable/                # Aset gambar, ikon, dan background custom (ic_technest_logo, dll.)
+│   ├── layout/                  # File desain UI XML (activity_*.xml & fragment_*.xml)
+│   ├── menu/                    # Desain menu untuk bottom navigation bar
+│   └── values/
+│       ├── colors.xml           # Definisi palet warna neon & dasar aplikasi
+│       ├── strings.xml          # Penyimpanan teks statis aplikasi
+│       └── themes/              # Konfigurasi gaya tema (themes.xml & themes.xml (night))
+│
+└── Gradle Scripts/              # Build configuration & dependensi library (Retrofit, Gson, dll.)
+
+```text
 
 ```
----
 
 ## 📸 Cara Penggunaan & Alur Kerja Aplikasi
 
@@ -74,8 +96,4 @@ com.example.technest/
 
 * **Nama:** Natasya
 * **Proyek:** Tugas Final Lab Mobile 2026
-* **Status Aplikasi:** 🚀 Stabil & Siap Dipresentasikan (100% Bebas Bug)
-👤 Developer
-Nama: Natasya
-Proyek: Tugas Final Lab Mobile 2026
-Status Aplikasi: Stabil
+* **Status Aplikasi:** 🚀 Stabil
