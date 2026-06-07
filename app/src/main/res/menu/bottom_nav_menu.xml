@@ -11,4 +11,9 @@
         android:title="Keranjang"
         android:icon="@android:drawable/ic_menu_agenda"/>
 
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profil"
+        android:icon="@android:drawable/ic_menu_myplaces"/>
+
 </menu>
