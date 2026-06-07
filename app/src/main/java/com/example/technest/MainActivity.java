@@ -1,7 +1,9 @@
 package com.example.technest;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -11,20 +13,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Pakai nama prefs yang sama: "technest_prefs"
+        SharedPreferences prefs = getSharedPreferences("technest_prefs", MODE_PRIVATE);
+        boolean isDarkMode = prefs.getBoolean("dark_mode", true);
+
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. Ambil NavHostFragment dengan aman
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
 
         if (navHostFragment != null) {
-            // 2. Ambil NavController untuk mengatur perpindahan halaman
             NavController navController = navHostFragment.getNavController();
-
-            // 3. Hubungkan Bottom Navigation dengan NavController otomatis
             BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-            NavigationUI.setupWithNavController(bottomNav, navController);
+            if (bottomNav != null) {
+                NavigationUI.setupWithNavController(bottomNav, navController);
+            }
         }
     }
 }
