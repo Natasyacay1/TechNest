@@ -1,39 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.CartFragment">
+    android:background="?android:attr/windowBackground">
 
-    <LinearLayout
+    <!-- Header Judul Keranjang -->
+    <TextView
+        android:id="@+id/tv_title_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:text="MY CART"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        tools:ignore="HardcodedText" />
+
+    <!-- RECYCLERVIEW (Daftar belanjaan, memanjang ke bawah) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp">
+        android:layout_below="@id/tv_title_cart"
+        android:layout_above="@id/layout_cart_summary"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="none" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@android:drawable/ic_input_add"
-            app:tint="@android:color/darker_gray" xmlns:app="http://schemas.android.com/apk/res-auto" />
+    <!-- TAMPILAN KOSONG (Dipacking rapi ke dalam LinearLayout) -->
+    <LinearLayout
+        android:id="@+id/layout_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Keranjang Belanja Kamu"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:text="+"
+            android:textColor="#1D232A"
+            android:textSize="80sp"
+            android:fontFamily="sans-serif-light"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Produk yang kamu tambahkan akan muncul di sini."
-            android:textColor="@android:color/darker_gray"
-            android:gravity="center" />
+            android:text="Keranjang Belanja Kamu"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Produk yang kamu tambahkan akan muncul di sini."
+            android:textColor="#626D77"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
-</FrameLayout>
+
+    <!-- PREMIUM BOTTOM CARD (Ringkasan Total & Tombol Checkout) -->
+    <LinearLayout
+        android:id="@+id/layout_cart_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#12161A"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="20dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Pemesanan"
+                android:textColor="#626D77"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tv_total_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="$0.00"
+                android:textColor="#00E5FF"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+        <!-- Tombol Checkout dengan warna Neon Cyan khas TechNest -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:backgroundTint="#00E5FF"
+            android:text="PROCEED TO CHECKOUT"
+            android:textColor="#0B0D0F"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</RelativeLayout>
