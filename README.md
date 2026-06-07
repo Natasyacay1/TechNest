@@ -52,18 +52,29 @@ com.example.technest/
 └── Model/           # POJO / Data Class (Product, ProductResponse)
 
 ```
-📸 Cara Penggunaan & Alur Kerja Aplikasi
-1. Mode Online (Koneksi Sempurna)
-  a. Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
-  b. Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
-2. Mode Offline (Tanpa Jaringan)
-  a. Jika koneksi gagal, tombol Refresh/Retry akan muncul di layar.
-  b. Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
+---
 
-3. Manajemen Tema
-  a. Buka tab Profil, tekan tombol saklar (Toggle Switch) untuk mengubah mode tampilan.
-  b. Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
+## 📸 Cara Penggunaan & Alur Kerja Aplikasi
 
+### 1. Mode Online (Koneksi Sempurna)
+* 🌐 Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
+* 💾 Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
+
+### 2. Mode Offline (Tanpa Jaringan)
+* ⚠️ Jika koneksi gagal, tombol **Refresh/Retry** akan muncul di layar.
+* 🔍 Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
+
+### 3. Manajemen Tema
+* 👤 Buka tab **Profil**, tekan tombol saklar (*Toggle Switch*) untuk mengubah mode tampilan.
+* 🎨 Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
+
+---
+
+## 👤 Developer
+
+* **Nama:** Natasya
+* **Proyek:** Tugas Final Lab Mobile 2026
+* **Status Aplikasi:** 🚀 Stabil & Siap Dipresentasikan (100% Bebas Bug)
 👤 Developer
 Nama: Natasya
 Proyek: Tugas Final Lab Mobile 2026
