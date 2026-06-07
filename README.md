@@ -1,0 +1,70 @@
+<p align="center">
+  <img src="app/src/main/res/drawable/ic_technest_logo.png" alt="TechNest Logo" width="120px">
+</p>
+
+# 📱 TechNest - E-Commerce & Gadget Catalog
+
+Standard
+[![Android Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com)
+[![Java Version](https://img.shields.io/badge/Language-Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![Build Status](https://img.shields.io/badge/Build-Success-success?style=flat-square)](#)
+
+**TechNest** adalah aplikasi Android berbasis e-commerce dan katalog gawai (*gadget*) modern yang dirancang khusus untuk memenuhi kriteria Tugas Final Lab Mobile 2026. Aplikasi ini mendukung pengalaman belanja yang mulus baik dalam kondisi online maupun offline menggunakan arsitektur caching lokal yang cerdas.
+
+---
+
+## 🚀 Fitur Utama & Spesifikasi Teknis
+
+Aplikasi ini diimplementasikan dengan memenuhi seluruh spesifikasi teknis yang diwajibkan:
+
+* **Dual-Activity Architecture:** Menggunakan struktur `MainActivity` sebagai gerbang utama/launcher aplikasi dan `DetailActivity` untuk informasi produk mendalam.
+* **Explicit Component Messaging (Intent):** Berpindah antar-halaman secara responsif sambil membawa data produk secara aman.
+* **Optimized Grid Layout (RecyclerView):** Menampilkan katalog gawai dalam bentuk grid 2 kolom yang rapi dan interaktif.
+* **Dynamic Fragment Navigation:** Manajemen perpindahan tab menggunakan *Navigation Component* (Jetpack) demi navigasi yang efisien.
+* **Asynchronous Processing (Background Thread):** Pemrosesan data jaringan berjalan di latar belakang menggunakan Executor/Handler sehingga UI tetap lancar.
+* **RESTful API Integration (Networking):** Mengonsumsi data produk teknologi secara real-time dari API DummyJSON menggunakan library **Retrofit**.
+* **Smart Offline Caching & Persistence (SQLite):** 
+    * **Fitur Keranjang:** Menyimpan item belanja lokal lewat `CartDatabaseHelper`.
+    * **Cache Offline:** Jika koneksi internet terputus, aplikasi otomatis menyaring dan menampilkan data produk terakhir yang tersimpan berdasarkan kategori aktif.
+* **Dynamic Theme Toggle (SharedPreferences):** Mendukung fitur ganti tema (Dark Theme / Light Theme) secara instan melalui halaman profil, di mana pilihan user akan tersimpan permanen meskipun aplikasi ditutup.
+
+---
+
+## 🛠️ Tech Stack & Libraries
+
+* **Language:** Java
+* **UI Architecture:** Material Design components, XML Layouts, RecyclerView (GridLayoutManager)
+* **Networking:** Retrofit 2 & OkHttp
+* **Database lokal:** SQLite (SQLiteOpenHelper)
+* **Key-Value Storage:** SharedPreferences
+
+---
+
+## 📂 Struktur Project
+
+```text
+com.example.technest/
+│
+├── API/             # Logika Networking & Config Retrofit (ApiService, ProductRepository)
+├── Adapter/         # Pengelola RecyclerView (ProductAdapter, CartAdapter)
+├── Database/        # Manajemen SQLite lokal (CartDatabaseHelper)
+├── Fragment/        # Halaman Tab Aplikasi (HomeFragment, CartFragment, ProfileFragment)
+└── Model/           # POJO / Data Class (Product, ProductResponse)
+
+```
+📸 Cara Penggunaan & Alur Kerja Aplikasi
+1. Mode Online (Koneksi Sempurna)
+  a. Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
+  b. Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
+2. Mode Offline (Tanpa Jaringan)
+  a. Jika koneksi gagal, tombol Refresh/Retry akan muncul di layar.
+  b. Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
+
+3. Manajemen Tema
+  a. Buka tab Profil, tekan tombol saklar (Toggle Switch) untuk mengubah mode tampilan.
+  b. Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
+
+👤 Developer
+Nama: Natasya
+Proyek: Tugas Final Lab Mobile 2026
+Status Aplikasi: Stabil
