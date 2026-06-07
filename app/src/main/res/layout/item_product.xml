@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
     app:cardCornerRadius="12dp"
-    app:cardBackgroundColor="#1A1D21"
+    app:cardBackgroundColor="#12161A"
     app:cardElevation="0dp">
 
     <LinearLayout
@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/img_product"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_technest_logo"/>
 
@@ -28,23 +28,11 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <!-- Brand -->
-            <TextView
-                android:id="@+id/tv_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apple"
-                android:textColor="#00BCD4"
-                android:textSize="10sp"
-                android:textAllCaps="true"
-                android:letterSpacing="0.05"/>
-
             <!-- Nama Produk -->
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tv_product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 android:text="Nama Gadget"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
@@ -52,28 +40,39 @@
                 android:maxLines="2"
                 android:ellipsize="end"/>
 
-            <!-- Harga -->
+            <!-- Rating -->
             <TextView
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_product_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Rp 999.000"
-                android:textColor="#00BCD4"
+                android:layout_marginTop="4dp"
+                android:text="⭐ 4.5"
+                android:textColor="#888888"
+                android:textSize="11sp"/>
+
+            <!-- Harga -->
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="$999"
+                android:textColor="#00E5FF"
                 android:textSize="13sp"
                 android:textStyle="bold"/>
 
             <!-- Tombol Add to Cart -->
-            <Button
-                android:id="@+id/btn_add_cart"
+            <TextView
+                android:id="@+id/btn_add_to_cart"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_back"
+                android:gravity="center"
                 android:text="+ Keranjang"
                 android:textSize="11sp"
-                android:textColor="#0F1113"
-                android:backgroundTint="#00BCD4"
-                app:cornerRadius="8dp"/>
+                android:textColor="#00E5FF"
+                android:textStyle="bold"/>
 
         </LinearLayout>
     </LinearLayout>
