@@ -16,7 +16,6 @@ public class CheckoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
-
         String title = getIntent().getStringExtra("product_title");
         double price = getIntent().getDoubleExtra("product_price", 0);
 
@@ -30,11 +29,9 @@ public class CheckoutActivity extends AppCompatActivity {
         long hargaRupiah = (long)(price * 16000);
         long ongkir = 25000;
         long total = hargaRupiah + ongkir;
-
         tvOrderTitle.setText(title);
         tvOrderPrice.setText("Rp " + String.format("%,d", hargaRupiah));
         tvTotalPrice.setText("Rp " + String.format("%,d", total));
-
         btnBack.setOnClickListener(v -> finish());
 
         btnBayar.setOnClickListener(v -> {
@@ -47,13 +44,10 @@ public class CheckoutActivity extends AppCompatActivity {
             RadioButton selected = findViewById(selectedId);
             String metode = selected.getText().toString();
 
-            // Bersihkan keranjang setelah checkout
             CartDatabaseHelper db = new CartDatabaseHelper(this);
             db.clearCart();
 
             Toast.makeText(this, "Pembayaran via " + metode + " berhasil! 🎉", Toast.LENGTH_LONG).show();
-
-            // Kembali ke Home
             android.content.Intent intent = new android.content.Intent(this, MainActivity.class);
             intent.setFlags(android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
