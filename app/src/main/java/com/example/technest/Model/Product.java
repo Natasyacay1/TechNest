@@ -28,7 +28,8 @@ public class Product {
     @SerializedName("thumbnail")
     private String thumbnail;
 
-    // Getter
+    private boolean isSelected = false;
+
     public int getId() { return id; }
     public String getTitle() { return title; }
     public String getDescription() { return description; }
@@ -38,7 +39,10 @@ public class Product {
     public String getCategory() { return category; }
     public String getThumbnail() { return thumbnail; }
 
-    // Setter
+    public boolean isSelected() {
+        return isSelected;
+    }
+
     public void setId(int id) { this.id = id; }
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
@@ -47,4 +51,7 @@ public class Product {
     public void setBrand(String brand) { this.brand = brand; }
     public void setCategory(String category) { this.category = category; }
     public void setThumbnail(String thumbnail) { this.thumbnail = thumbnail; }
+    public void setSelected(boolean selected) {
+        this.isSelected = selected;
+    }
 }
