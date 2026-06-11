@@ -19,6 +19,7 @@ import com.example.technest.CheckoutActivity;
 import com.example.technest.Database.CartDatabaseHelper;
 import com.example.technest.Model.Product;
 import com.example.technest.R;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -30,6 +31,7 @@ public class CartFragment extends Fragment {
     private AppCompatButton btnCheckout;
     private CartDatabaseHelper dbHelper;
     private CartAdapter cartAdapter;
+    private List<Product> currentCartList;
 
     @Nullable
     @Override
@@ -50,7 +52,6 @@ public class CartFragment extends Fragment {
         dbHelper = new CartDatabaseHelper(getContext());
 
         cartAdapter = new CartAdapter(null, (product, position) -> {
-            // Hapus dari database
             dbHelper.deleteCartItem(product.getId());
             Toast.makeText(getContext(), product.getTitle() + " dihapus dari keranjang", Toast.LENGTH_SHORT).show();
             loadCartData();
@@ -58,16 +59,25 @@ public class CartFragment extends Fragment {
 
         rvCart.setLayoutManager(new LinearLayoutManager(getContext()));
         rvCart.setAdapter(cartAdapter);
-
         btnCheckout.setOnClickListener(v -> {
-            List<Product> cartList = dbHelper.getAllCartItems();
-            if (cartList != null && !cartList.isEmpty()) {
-                double total = 0;
-                for (Product p : cartList) total += p.getPrice();
+            if (currentCartList != null && !currentCartList.isEmpty()) {
+                List<Product> selectedList = new ArrayList<>();
+                double totalSelectedPrice = 0;
+                for (Product p : currentCartList) {
+                    if (p.isSelected()) {
+                        selectedList.add(p);
+                        totalSelectedPrice += p.getPrice();
+                    }
+                }
+
+                if (selectedList.isEmpty()) {
+                    Toast.makeText(getContext(), "Silakan pilih minimal 1 produk untuk di-checkout", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Intent intent = new Intent(getActivity(), CheckoutActivity.class);
-                intent.putExtra("product_title", cartList.size() + " produk");
-                intent.putExtra("product_price", total);
+                intent.putExtra("product_title", selectedList.size() + " produk");
+                intent.putExtra("product_price", totalSelectedPrice);
                 startActivity(intent);
             }
         });
@@ -85,6 +95,7 @@ public class CartFragment extends Fragment {
         if (dbHelper == null) return;
 
         List<Product> cartList = dbHelper.getAllCartItems();
+        currentCartList = cartList;
         double totalBelanja = 0;
 
         if (cartList != null && !cartList.isEmpty()) {
