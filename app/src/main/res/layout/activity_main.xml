@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B0D0F"
+    android:background="?android:attr/colorBackground"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -25,7 +25,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#12161A"
+        android:background="?attr/colorSurface"
         app:itemIconTint="#00E5FF"
         app:itemTextColor="#00E5FF"
         app:layout_constraintBottom_toBottomOf="parent"
