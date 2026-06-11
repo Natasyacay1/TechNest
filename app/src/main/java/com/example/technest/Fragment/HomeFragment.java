@@ -231,7 +231,7 @@ public class HomeFragment extends Fragment {
                     progressBar.setVisibility(View.GONE);
                     btnRefresh.setVisibility(View.VISIBLE);
 
-                    // MEMPERBAIKI DISINI: Ambil semua cache lalu saring sesuai kategori yang diklik
+                    //mbil semua cache lalu saring sesuai kategori yang diklik
                     List<Product> allCachedProducts = dbHelper.getCachedProducts();
                     List<Product> filteredCache = new ArrayList<>();
 
