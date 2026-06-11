@@ -3,6 +3,7 @@ package com.example.technest.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +42,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         holder.tvTitle.setText(product.getTitle());
         holder.tvPrice.setText("$" + product.getPrice());
+        holder.cbSelectItem.setOnCheckedChangeListener(null);
+        holder.cbSelectItem.setChecked(product.isSelected());
+        holder.cbSelectItem.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            product.setSelected(isChecked);
+        });
 
         Glide.with(holder.itemView.getContext())
                 .load(product.getThumbnail())
@@ -69,6 +75,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         ImageView imgProduct;
         TextView tvTitle, tvPrice;
         ImageButton btnDelete;
+        CheckBox cbSelectItem;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +83,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             tvTitle = itemView.findViewById(R.id.tv_cart_title);
             tvPrice = itemView.findViewById(R.id.tv_cart_price);
             btnDelete = itemView.findViewById(R.id.btn_delete_cart);
+            cbSelectItem = itemView.findViewById(R.id.cb_select_item);
         }
     }
 }
