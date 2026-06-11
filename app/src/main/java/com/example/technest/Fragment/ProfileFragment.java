@@ -42,25 +42,16 @@ public class ProfileFragment extends Fragment {
         String email = prefs.getString("user_email", "user@technest.com");
         tvNama.setText(nama);
         tvEmail.setText(email);
-
-        // Ambil status dark mode (default true sesuai kodingan aslimu)
         boolean isDarkMode = prefs.getBoolean("dark_mode", true);
-
-        // FIX: Set status saklar SEBELUM listener dipasang agar tidak bentrok saat recreate halaman
-        // Jika isDarkMode = true, maka saklar otomatis menyala (checked)
         switchTheme.setChecked(isDarkMode);
-
-        // FIX: Logika diselaraskan (Checked = Gelap, Unchecked = Terang)
         switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (getContext() == null || getActivity() == null) return;
 
             if (isChecked) {
-                // Saklar ON -> Aktifkan Mode Gelap
                 prefs.edit().putBoolean("dark_mode", true).apply();
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 Toast.makeText(getContext(), "Mode Gelap aktif", Toast.LENGTH_SHORT).show();
             } else {
-                // Saklar OFF -> Aktifkan Mode Terang
                 prefs.edit().putBoolean("dark_mode", false).apply();
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 Toast.makeText(getContext(), "Mode Terang aktif", Toast.LENGTH_SHORT).show();

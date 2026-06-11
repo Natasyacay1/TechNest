@@ -17,8 +17,6 @@ public class ProductRepository {
         this.apiService = RetrofitClient.getApiService();
         this.executor = Executors.newSingleThreadExecutor();
     }
-
-    // Gabungkan smartphone laptop tablet untuk tombol "Semua"
     public void getAllProducts(ApiCallback<ProductResponse> callback) {
         executor.execute(() -> {
             try {
