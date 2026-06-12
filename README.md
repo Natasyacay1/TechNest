@@ -17,18 +17,17 @@
 ### 1. Alur Autentikasi & Antarmuka Awal
 | Splash Screen | Halaman Login | Halaman Register |
 | :---: | :---: | :---: |
-| <img src="welcome.jpg" width="220" alt="Splash Screen"> | <img src="login.jpg" width="220" alt="Login Screen"> | <img src="register.jpg" width="220" alt="Register Screen"> |
+| <img src="app/src/main/res/drawable/welcome.jpg" width="220" alt="Splash Screen"> | <img src="app/src/main/res/drawable/login.jpg" width="220" alt="Login Screen"> | <img src="app/src/main/res/drawable/register.jpg" width="220" alt="Register Screen"> |
 
 ### 2. Katalog Produk (Grid View) & Mode Cache Offline
 | Kategori Smartphone | Kategori Laptop | Kategori Tablet | Mode Offline |
 | :---: | :---: | :---: | :---: |
-| <img src="smartphone.jpg" width="180" alt="Smartphone Category"> | <img src="laptop.jpg" width="180" alt="Laptop Category"> | <img src="tab.jpg" width="180" alt="Tablet Category"> | <img src="offline mode.jpg" width="180" alt="Offline Mode"> |
+| <img src="app/src/main/res/drawable/smartphone.jpg" width="180" alt="Smartphone Category"> | <img src="app/src/main/res/drawable/laptop.jpg" width="180" alt="Laptop Category"> | <img src="app/src/main/res/drawable/tab.jpg" width="180" alt="Tablet Category"> | <img src="app/src/main/res/drawable/offline%20mode.jpg" width="180" alt="Offline Mode"> |
 
 ### 3. Fitur Transaksi & Pengaturan Pengguna
 | Keranjang Belanja (My Cart) | Halaman Profil & Tema |
 | :---: | :---: |
-| <img src="my chart.jpg" width="220" alt="Cart Screen"> | <img src="profile.jpg" width="220" alt="Profile Screen"> |
-
+| <img src="app/src/main/res/drawable/my%20chart.jpg" width="220" alt="Cart Screen"> | <img src="app/src/main/res/drawable/profile.jpg" width="220" alt="Profile Screen"> |
 ---
 
 ## 🚀 Fitur Utama & Spesifikasi Teknis
