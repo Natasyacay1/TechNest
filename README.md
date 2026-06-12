@@ -4,12 +4,30 @@
 
 # 📱 TechNest - E-Commerce & Gadget Catalog
 
-Standard
 [![Android Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com)
 [![Java Version](https://img.shields.io/badge/Language-Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
 [![Build Status](https://img.shields.io/badge/Build-Success-success?style=flat-square)](#)
 
 **TechNest** adalah aplikasi Android berbasis e-commerce dan katalog gawai (*gadget*) modern yang dirancang khusus untuk memenuhi kriteria Tugas Final Lab Mobile 2026. Aplikasi ini mendukung pengalaman belanja yang mulus baik dalam kondisi online maupun offline menggunakan arsitektur caching lokal yang cerdas.
+
+---
+
+## 📸 Tampilan Aplikasi (Screenshots)
+
+### 1. Alur Autentikasi & Antarmuka Awal
+| Splash Screen | Halaman Login | Halaman Register |
+| :---: | :---: | :---: |
+| <img src="welcome.jpg" width="220" alt="Splash Screen"> | <img src="login.jpg" width="220" alt="Login Screen"> | <img src="register.jpg" width="220" alt="Register Screen"> |
+
+### 2. Katalog Produk (Grid View) & Mode Cache Offline
+| Kategori Smartphone | Kategori Laptop | Kategori Tablet | Mode Offline |
+| :---: | :---: | :---: | :---: |
+| <img src="smartphone.jpg" width="180" alt="Smartphone Category"> | <img src="laptop.jpg" width="180" alt="Laptop Category"> | <img src="tab.jpg" width="180" alt="Tablet Category"> | <img src="offline mode.jpg" width="180" alt="Offline Mode"> |
+
+### 3. Fitur Transaksi & Pengaturan Pengguna
+| Keranjang Belanja (My Cart) | Halaman Profil & Tema |
+| :---: | :---: |
+| <img src="my chart.jpg" width="220" alt="Cart Screen"> | <img src="profile.jpg" width="220" alt="Profile Screen"> |
 
 ---
 
@@ -23,10 +41,17 @@ Aplikasi ini diimplementasikan dengan memenuhi seluruh spesifikasi teknis yang d
 * **Dynamic Fragment Navigation:** Manajemen perpindahan tab menggunakan *Navigation Component* (Jetpack) demi navigasi yang efisien.
 * **Asynchronous Processing (Background Thread):** Pemrosesan data jaringan berjalan di latar belakang menggunakan Executor/Handler sehingga UI tetap lancar.
 * **RESTful API Integration (Networking):** Mengonsumsi data produk teknologi secara real-time dari API DummyJSON menggunakan library **Retrofit**.
-* **Smart Offline Caching & Persistence (SQLite):** 
-    * **Fitur Keranjang:** Menyimpan item belanja lokal lewat `CartDatabaseHelper`.
+* **Smart Offline Caching & Persistence (SQLite):** * **Fitur Keranjang:** Menyimpan item belanja lokal lewat `CartDatabaseHelper`.
     * **Cache Offline:** Jika koneksi internet terputus, aplikasi otomatis menyaring dan menampilkan data produk terakhir yang tersimpan berdasarkan kategori aktif.
 * **Dynamic Theme Toggle (SharedPreferences):** Mendukung fitur ganti tema (Dark Theme / Light Theme) secara instan melalui halaman profil, di mana pilihan user akan tersimpan permanen meskipun aplikasi ditutup.
+
+---
+
+## ✨ Fitur Kreativitas & Inovasi Tambahan (+10% Poin)
+
+Selain memenuhi spesifikasi standar lab, TechNest juga dilengkapi dengan fitur tambahan yang meningkatkan nilai guna (*User Experience*):
+* **Dynamic Checkbox Checkout Selection:** Pengguna dapat memilih secara spesifik (*multi-select*) produk mana saja di dalam keranjang yang ingin diproses ke halaman pembayaran menggunakan integrasi status boolean dinamis pada SQLite.
+* **Real-time Price Engine:** Total harga belanja di bagian bawah keranjang akan langsung bertambah atau berkurang secara *real-time* mengikuti aksi centang pengguna tanpa perlu memuat ulang (*refresh*) halaman fragment.
 
 ---
 
@@ -72,28 +97,21 @@ app/
 │
 └── Gradle Scripts/              # Build configuration & dependensi library (Retrofit, Gson, dll.)
 
-```text
-
 ```
+📸 Cara Penggunaan & Alur Kerja Aplikasi
+1. Mode Online (Koneksi Sempurna)
+🌐 Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
+💾 Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
 
-## 📸 Cara Penggunaan & Alur Kerja Aplikasi
+2. Mode Offline (Tanpa Jaringan)
+⚠️ Jika koneksi gagal, tombol Refresh/Retry atau toast pemberitahuan offline akan muncul di layar.
+🔍 Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
 
-### 1. Mode Online (Koneksi Sempurna)
-* 🌐 Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
-* 💾 Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
+3. Manajemen Tema
+👤 Buka tab Profil, tekan tombol saklar (Toggle Switch) untuk mengubah mode tampilan.
+🎨 Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
 
-### 2. Mode Offline (Tanpa Jaringan)
-* ⚠️ Jika koneksi gagal, tombol **Refresh/Retry** akan muncul di layar.
-* 🔍 Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
-
-### 3. Manajemen Tema
-* 👤 Buka tab **Profil**, tekan tombol saklar (*Toggle Switch*) untuk mengubah mode tampilan.
-* 🎨 Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
-
----
-
-## 👤 Developer
-
-* **Nama:** Natasya
-* **Proyek:** Tugas Final Lab Mobile 2026
-* **Status Aplikasi:** 🚀 Stabil
+👤 Developer
+Nama: Natasya
+Proyek: Tugas Final Lab Mobile 2026
+Status Aplikasi: 🚀 Stabil
