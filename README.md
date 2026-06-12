@@ -97,20 +97,23 @@ app/
 └── Gradle Scripts/              # Build configuration & dependensi library (Retrofit, Gson, dll.)
 
 ```
-📸 Cara Penggunaan & Alur Kerja Aplikasi
-1. Mode Online (Koneksi Sempurna)
-🌐 Aplikasi dibuka langsung mengambil data gawai segar dari API DummyJSON.
-💾 Data otomatis disalin langsung ke tabel cache SQLite lokal agar selalu up-to-date.
+## 🚀 Cara Penggunaan & Alur Kerja Aplikasi
 
-2. Mode Offline (Tanpa Jaringan)
-⚠️ Jika koneksi gagal, tombol Refresh/Retry atau toast pemberitahuan offline akan muncul di layar.
-🔍 Aplikasi memuat data dari SQLite dan menyaring produk sesuai kategori tab yang dipilih user secara presisi.
+### 1. Mode Online (Koneksi Sempurna)
+* 🌐 **Ambil Data Real-time:** Saat aplikasi dibuka dengan koneksi internet, aplikasi langsung mengambil data gawai (gadget) segar dari API DummyJSON.
+* 💾 **Sinkronisasi Otomatis:** Data tersebut otomatis disalin langsung ke dalam tabel *cache* SQLite lokal agar data aplikasi selalu up-to-date.
 
-3. Manajemen Tema
-👤 Buka tab Profil, tekan tombol saklar (Toggle Switch) untuk mengubah mode tampilan.
-🎨 Aplikasi secara instan mengganti konfigurasi warna dasar tanpa merusak status aplikasi.
+### 2. Mode Offline (Tanpa Jaringan)
+* ⚠️ **Pemberitahuan Gagal:** Jika koneksi internet terputus atau gagal, aplikasi akan memunculkan tombol *Refresh/Retry* atau pesan *Toast* pemberitahuan offline di layar.
+* 🔍 **Pencarian SQLite:** Aplikasi akan beralih memuat data dari database SQLite lokal dan menyaring produk sesuai kategori tab yang kamu pilih secara presisi.
 
-👤 Developer
-Nama: Natasya
-Proyek: Tugas Final Lab Mobile 2026
-Status Aplikasi: 🚀 Stabil
+### 3. Manajemen Tema
+* 👤 **Pengaturan Tampilan:** Buka tab Profil, lalu tekan tombol saklar (*Toggle Switch*) untuk mengubah mode tampilan.
+* 🎨 **Perubahan Instan:** Aplikasi secara instan mengganti konfigurasi warna dasar (*Light/Dark Mode*) tanpa merusak status atau menghentikan alur kerja aplikasi.
+
+---
+
+## 👤 Developer
+* **Nama:** Natasya
+* **Proyek:** Tugas Final Lab Mobile 2026
+* **Status Aplikasi:** 🚀 Stabil 
